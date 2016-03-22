@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Guid>dea7bf34-8d18-4a42-a3cc-c1a86d857c7f</Guid>
+    <Name>Guerilla Warfare</Name>
+    <Description>Description of My XCOM 2 Mod.</Description>
+    <SteamPublishID>0</SteamPublishID>
+    <AssemblyName>GuerillaWarfare</AssemblyName>
+    <RootNamespace>GuerillaWarfare</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Config\XComEditor.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Config\XComEngine.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Config\XComMissions.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Config\XComParcels.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Config\XComPCPs.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_ExponentialRNF.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_Obj_SabotageCC.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Localization\XComGame.int">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModPreview.jpg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ReadMe.txt" />
+    <Content Include="Src\GuerillaWarfare\Classes\GW_DefaultCharacters.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerillaWarfare\Classes\GW_TacticalGameRuleset.uc">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="Content" />
+    <Folder Include="Localization" />
+    <Folder Include="Src" />
+    <Folder Include="Src\GuerillaWarfare" />
+    <Folder Include="Src\GuerillaWarfare\Classes" />
+  </ItemGroup>
+  <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />
+</Project>
