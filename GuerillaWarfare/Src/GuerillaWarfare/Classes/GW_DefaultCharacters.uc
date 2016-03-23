@@ -47,3 +47,11 @@ static function X2CharacterTemplate CreateTemplate_AdvCaptainM3()
 	CharTemplate.bCanBeCarried = true;
 	return CharTemplate;
 }
+
+static function X2CharacterTemplate CreateTemplate_Sectoid()
+{
+	local X2CharacterTemplate CharTemplate;
+	CharTemplate = Super(X2Character_DefaultCharacters).CreateTemplate_Sectoid();
+	CharTemplate.bCanBeCarried = true;
+	return CharTemplate;
+}
