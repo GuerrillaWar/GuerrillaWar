@@ -27,6 +27,9 @@
     <Content Include="Content\GW_ExponentialRNF.umap">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\GW_GameUnits.upk">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\GW_Obj_SabotageCC.umap">
       <SubType>Content</SubType>
     </Content>
@@ -38,6 +41,9 @@
     </Content>
     <Content Include="ReadMe.txt" />
     <Content Include="Src\GuerillaWarfare\Classes\GW_DefaultCharacters.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerillaWarfare\Classes\GW_GameState_EvacZone.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerillaWarfare\Classes\GW_TacticalGameRuleset.uc">
