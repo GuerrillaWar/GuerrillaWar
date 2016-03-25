@@ -24,6 +24,9 @@
     <Content Include="Config\XComPCPs.ini">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\GW_Effects.upk">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\GW_ExponentialRNF.umap">
       <SubType>Content</SubType>
     </Content>
@@ -40,10 +43,13 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ReadMe.txt" />
+    <Content Include="Src\GuerillaWarfare\Classes\GW_Ability_AbortMission.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerillaWarfare\Classes\GW_DefaultCharacters.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerillaWarfare\Classes\GW_GameState_EvacZone.uc">
+    <Content Include="Src\GuerillaWarfare\Classes\GW_GameState_EvacZoneSpawner.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerillaWarfare\Classes\GW_TacticalGameRuleset.uc">
