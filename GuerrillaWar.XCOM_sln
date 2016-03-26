@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # XCOM ModBuddy Solution File, Format Version 11.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "GuerillaWarfare", "GuerillaWarfare\GuerillaWarfare.x2proj", "{216B085A-8A93-40F8-9BC2-503E648A1C26}"
+Project("{5DAE07AF-E217-45C1-8DE7-FF99D6011E8A}") = "GuerrillaWar", "GuerrillaWar\GuerrillaWar.x2proj", "{216B085A-8A93-40F8-9BC2-503E648A1C26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

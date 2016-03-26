@@ -5,8 +5,8 @@
     <Name>Guerilla Warfare</Name>
     <Description>Description of My XCOM 2 Mod.</Description>
     <SteamPublishID>0</SteamPublishID>
-    <AssemblyName>GuerillaWarfare</AssemblyName>
-    <RootNamespace>GuerillaWarfare</RootNamespace>
+    <AssemblyName>GuerrillaWar</AssemblyName>
+    <RootNamespace>GuerrillaWar</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Config\XComEditor.ini">
@@ -43,16 +43,16 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ReadMe.txt" />
-    <Content Include="Src\GuerillaWarfare\Classes\GW_Ability_AbortMission.uc">
+    <Content Include="Src\GuerrillaWar\Classes\GW_Ability_AbortMission.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerillaWarfare\Classes\GW_DefaultCharacters.uc">
+    <Content Include="Src\GuerrillaWar\Classes\GW_DefaultCharacters.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerillaWarfare\Classes\GW_GameState_EvacZoneSpawner.uc">
+    <Content Include="Src\GuerrillaWar\Classes\GW_GameState_EvacZoneSpawner.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerillaWarfare\Classes\GW_TacticalGameRuleset.uc">
+    <Content Include="Src\GuerrillaWar\Classes\GW_TacticalGameRuleset.uc">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
@@ -61,8 +61,8 @@
     <Folder Include="Content" />
     <Folder Include="Localization" />
     <Folder Include="Src" />
-    <Folder Include="Src\GuerillaWarfare" />
-    <Folder Include="Src\GuerillaWarfare\Classes" />
+    <Folder Include="Src\GuerrillaWar" />
+    <Folder Include="Src\GuerrillaWar\Classes" />
   </ItemGroup>
   <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />
 </Project>
