@@ -2,11 +2,12 @@
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Guid>dea7bf34-8d18-4a42-a3cc-c1a86d857c7f</Guid>
-    <Name>Guerilla Warfare</Name>
+    <Name>Guerrilla War</Name>
     <Description>Description of My XCOM 2 Mod.</Description>
     <SteamPublishID>0</SteamPublishID>
     <AssemblyName>GuerrillaWar</AssemblyName>
     <RootNamespace>GuerrillaWar</RootNamespace>
+    <ProjectGuid>{37be39d5-bf2a-4cfc-8107-2a03c1b6ee96}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Config\XComEditor.ini">
