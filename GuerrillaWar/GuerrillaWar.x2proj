@@ -49,6 +49,9 @@
     <Content Include="Content\GW_Obj_SabotageCC.umap">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\GW_Obj_Terror.umap">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Localization\XComGame.int">
       <SubType>Content</SubType>
     </Content>
