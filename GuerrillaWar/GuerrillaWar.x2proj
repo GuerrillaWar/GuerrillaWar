@@ -37,13 +37,22 @@
     <Content Include="Content\GW_Obj_DestroyObject.umap">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\GW_Obj_ExtractVIP.umap">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\GW_Obj_HackWorkstation.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_Obj_NeutralizeTarget.umap">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\GW_Obj_ProtectDevice.umap">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\GW_Obj_RecoverItem.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_Obj_RescueVIP.umap">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\GW_Obj_SabotageCC.umap">
