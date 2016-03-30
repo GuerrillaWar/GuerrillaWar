@@ -10,6 +10,9 @@
     <ProjectGuid>{37be39d5-bf2a-4cfc-8107-2a03c1b6ee96}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Config\GuerrillaWar.ini">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Config\XComEditor.ini">
       <SubType>Content</SubType>
     </Content>
@@ -71,10 +74,19 @@
     <Content Include="Src\GuerrillaWar\Classes\GW_Ability_AbortMission.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_Ability_DeployFultonHarness.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_DefaultCharacters.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_GameState_EvacZoneSpawner.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_GameState_Unit.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_Item_FultonHarness.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_TacticalGameRuleset.uc">
