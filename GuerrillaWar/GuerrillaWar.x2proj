@@ -77,13 +77,13 @@
     <Content Include="Src\GuerrillaWar\Classes\GW_Ability_DeployFultonHarness.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_Action_FultonExtraction.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_DefaultCharacters.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_GameState_EvacZoneSpawner.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\GuerrillaWar\Classes\GW_GameState_Unit.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_Item_FultonHarness.uc">

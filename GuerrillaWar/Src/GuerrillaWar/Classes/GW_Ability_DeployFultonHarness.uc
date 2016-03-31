@@ -14,18 +14,22 @@ static function array<X2DataTemplate> CreateTemplates()
 static function X2AbilityTemplate CreateDeployFultonHarness()
 {
 	local X2AbilityTemplate                 Template;
-	local X2AbilityCost_Ammo                AmmoCost;
 	local X2AbilityCost_ActionPoints        ActionPointCost;
 	local X2AbilityTarget_Single            SingleTarget;
 	local X2Condition_UnitProperty      TargetCondition, ShooterCondition;
 	local X2AbilityTrigger_PlayerInput      InputTrigger;
+	local X2AbilityCharges              Charges;
+	local X2AbilityCost_Charges         ChargeCost;
 
 	`CREATE_X2ABILITY_TEMPLATE(Template, 'DeployFultonHarness');
 
-	AmmoCost = new class'X2AbilityCost_Ammo';
-	AmmoCost.iAmmo = 1;
-	AmmoCost.bReturnChargesError = true;
-	Template.AbilityCosts.AddItem(AmmoCost);
+	Charges = new class'X2AbilityCharges';
+	Charges.InitialCharges = 2;
+	Template.AbilityCharges = Charges;
+
+	ChargeCost = new class'X2AbilityCost_Charges';
+	ChargeCost.NumCharges = 1;
+	Template.AbilityCosts.AddItem(ChargeCost);
 
 	ActionPointCost = new class'X2AbilityCost_ActionPoints';
 	ActionPointCost.iNumPoints = 1;
@@ -57,8 +61,6 @@ static function X2AbilityTemplate CreateDeployFultonHarness()
 
 	Template.IconImage = "img:///UILibrary_PerkIcons.UIPerk_stabilize";
 	Template.ShotHUDPriority = class'UIUtilities_Tactical'.const.STABILIZE_PRIORITY;
-	Template.bUseAmmoAsChargesForHUD = true;
-	Template.iAmmoAsChargesDivisor = 1;
 	Template.Hostility = eHostility_Defensive;
 	Template.eAbilityIconBehaviorHUD = eAbilityIconBehavior_AlwaysShow;
 	Template.bDisplayInUITooltip = false;
@@ -80,6 +82,9 @@ simulated function XComGameState DeployFultonHarness_BuildGameState( XComGameSta
 	local XComGameState_Unit Target_OriginalState, Target_NewState;	
 	local XComGameState_Ability AbilityState;
 	local XComGameState_Effect BleedOutEffect;
+	local XComGameState_Item       SourceWeapon, SourceWeapon_NewState;
+	local XComGameState_BaseObject SourceObject_OriginalState;
+	local XComGameState_BaseObject SourceObject_NewState;
 	local X2AbilityTemplate AbilityTemplate;
 
 	History = `XCOMHISTORY;
@@ -88,6 +93,16 @@ simulated function XComGameState DeployFultonHarness_BuildGameState( XComGameSta
 	AbilityContext = XComGameStateContext_Ability(Context);	
 	AbilityState = XComGameState_Ability(History.GetGameStateForObjectID(AbilityContext.InputContext.AbilityRef.ObjectID));
 	AbilityTemplate = AbilityState.GetMyTemplate();	
+	SourceObject_OriginalState = History.GetGameStateForObjectID(AbilityContext.InputContext.SourceObject.ObjectID);
+	SourceWeapon = AbilityState.GetSourceWeapon();
+	SourceObject_NewState = NewGameState.CreateStateObject(SourceObject_OriginalState.Class, AbilityContext.InputContext.SourceObject.ObjectID);
+	NewGameState.AddStateObject(SourceObject_NewState);
+	if (SourceWeapon != none)
+	{
+		SourceWeapon_NewState = XComGameState_Item(NewGameState.CreateStateObject(class'XComGameState_Item', SourceWeapon.ObjectID));
+		NewGameState.AddStateObject(SourceWeapon_NewState);
+	}
+
 	if (AbilityContext.InputContext.PrimaryTarget.ObjectID != 0)
 	{
 		Target_OriginalState = XComGameState_Unit(History.GetGameStateForObjectID(AbilityContext.InputContext.PrimaryTarget.ObjectID));
@@ -95,9 +110,6 @@ simulated function XComGameState DeployFultonHarness_BuildGameState( XComGameSta
 
 		//Trigger this ability here so that any the EvacActivated event is triggered before UnitRemovedFromPlay
 		`XEVENTMGR.TriggerEvent('ExtractActivated', AbilityState, Target_NewState, NewGameState); 
-
-		AbilityTemplate.ApplyCost(AbilityContext, AbilityState, Target_NewState, Target_NewState, NewGameState);	
-
 		
 		Target_NewState.bBodyRecovered = true;
 		Target_NewState.RemoveStateFromPlay();
@@ -122,6 +134,7 @@ simulated function XComGameState DeployFultonHarness_BuildGameState( XComGameSta
 		}
 		NewGameState.AddStateObject(Target_NewState);
 	}
+	AbilityTemplate.ApplyCost(AbilityContext, AbilityState, SourceObject_NewState, SourceWeapon_NewState, NewGameState);	
 
 	//Return the game state we have created
 	return NewGameState;
@@ -149,13 +162,8 @@ simulated function DeployFultonHarness_BuildVisualization(XComGameState Visualiz
 		BuildTrack.StateObject_NewState = VisualizeGameState.GetGameStateForObjectID(GameStateUnit.ObjectID);
 		BuildTrack.TrackActor = History.GetVisualizer(GameStateUnit.ObjectID);
 
-		//Add this potential flyover (does this still exist in the game?)
-		class'XComGameState_Unit'.static.SetUpBuildTrackForSoldierRelationship(BuildTrack, VisualizeGameState, GameStateUnit.ObjectID);
-
-
-		class'X2Action_Evac'.static.AddToVisualizationTrack(BuildTrack, VisualizeGameState.GetContext()); //Not being carried - rope out
-		//Hide the pawn explicitly now - in case the vis block doesn't complete immediately to trigger an update
-		class'X2Action_RemoveUnit'.static.AddToVisualizationTrack(BuildTrack, VisualizeGameState.GetContext());
+		class'GW_Action_FultonExtraction'.static.AddToVisualizationTrack(BuildTrack, VisualizeGameState.GetContext()); 
+		//class'X2Action_RemoveUnit'.static.AddToVisualizationTrack(BuildTrack, VisualizeGameState.GetContext());
 
 		//Add track to vis block
 		OutVisualizationTracks.AddItem(BuildTrack);
