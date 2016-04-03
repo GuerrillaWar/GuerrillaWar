@@ -61,7 +61,13 @@
     <Content Include="Content\GW_Obj_SabotageCC.umap">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\GW_Obj_SupplyRaid.umap">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\GW_Obj_Terror.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_SupplyRaidExtract.upk">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Localization\XComGame.int">
@@ -80,6 +86,12 @@
     <Content Include="Src\GuerrillaWar\Classes\GW_Action_FultonExtraction.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_AIBehavior_SupplyCrate.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_Character_SupplyCrate.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_DefaultCharacters.uc">
       <SubType>Content</SubType>
     </Content>
@@ -87,6 +99,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_Item_FultonHarness.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_MissionNarrative_SupplyRaidExtract.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_TacticalGameRuleset.uc">

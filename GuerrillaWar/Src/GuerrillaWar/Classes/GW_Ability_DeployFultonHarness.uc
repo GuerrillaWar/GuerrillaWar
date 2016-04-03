@@ -109,6 +109,7 @@ simulated function XComGameState DeployFultonHarness_BuildGameState( XComGameSta
 		Target_NewState = XComGameState_Unit(NewGameState.CreateStateObject(Target_OriginalState.Class, Target_OriginalState.ObjectID));
 
 		//Trigger this ability here so that any the EvacActivated event is triggered before UnitRemovedFromPlay
+		`XEVENTMGR.TriggerEvent('EvacActivated', AbilityState, Target_NewState, NewGameState); 
 		`XEVENTMGR.TriggerEvent('ExtractActivated', AbilityState, Target_NewState, NewGameState); 
 		
 		Target_NewState.bBodyRecovered = true;
