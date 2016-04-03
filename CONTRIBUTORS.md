@@ -1,2 +1,2 @@
-James Rakich - MalucoMarinero
-Leon-Cantin
+- James Rakich - MalucoMarinero
+- Leon-Cantin
