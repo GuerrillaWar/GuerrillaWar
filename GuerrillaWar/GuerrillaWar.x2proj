@@ -83,6 +83,9 @@
     <Content Include="Src\GuerrillaWar\Classes\GW_Ability_DeployFultonHarness.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_Ability_SupplyCrate.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_Action_FultonExtraction.uc">
       <SubType>Content</SubType>
     </Content>
