@@ -7,6 +7,7 @@ static function array<X2DataTemplate> CreateTemplates()
 	local array<X2DataTemplate> Templates;
 	
 	Templates.AddItem(CreateTemplate_SupplyCrate());
+
 	return Templates;
 }
 
@@ -55,6 +56,9 @@ static function X2CharacterTemplate CreateTemplate_SupplyCrate()
 	CharTemplate.bSkipDefaultAbilities = true;
 
 	CharTemplate.bBlocksPathingWhenDead = true;
+
+
+	CharTemplate.Abilities.AddItem('GW_AlwaysUnconcious');
 
 	CharTemplate.strHackIconImage = "UILibrary_Common.TargetIcons.Hack_turret_icon";
 	CharTemplate.strTargetIconImage = class'UIUtilities_Image'.const.TargetIcon_Turret;
