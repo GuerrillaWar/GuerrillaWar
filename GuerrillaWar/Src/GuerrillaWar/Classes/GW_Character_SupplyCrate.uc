@@ -58,7 +58,7 @@ static function X2CharacterTemplate CreateTemplate_SupplyCrate()
 	CharTemplate.bBlocksPathingWhenDead = true;
 
 
-	CharTemplate.Abilities.AddItem('GW_AlwaysUnconcious');
+	CharTemplate.Abilities.AddItem('GW_AlwaysUnconscious');
 
 	CharTemplate.strHackIconImage = "UILibrary_Common.TargetIcons.Hack_turret_icon";
 	CharTemplate.strTargetIconImage = class'UIUtilities_Image'.const.TargetIcon_Turret;

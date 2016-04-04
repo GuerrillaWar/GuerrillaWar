@@ -13,7 +13,7 @@ static function X2DataTemplate CreateBeUselessAbility()
 {
 	local X2AbilityTemplate Template;
 
-	`CREATE_X2ABILITY_TEMPLATE(Template, 'GW_AlwaysUnconcious');
+	`CREATE_X2ABILITY_TEMPLATE(Template, 'GW_AlwaysUnconscious');
 
 	Template.IconImage = "img:///UILibrary_PerkIcons.UIPerk_muton_bayonet"; //Could be anything
 	
