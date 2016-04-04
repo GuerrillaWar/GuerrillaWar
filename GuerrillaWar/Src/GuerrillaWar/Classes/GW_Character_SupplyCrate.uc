@@ -19,7 +19,7 @@ static function X2CharacterTemplate CreateTemplate_SupplyCrate()
 	CharTemplate.BehaviorClass = class'GW_AIBehavior_SupplyCrate';
 
 	CharTemplate.strPawnArchetypes.AddItem("GW_SupplyRaidExtract.GW_GameUnit_SupplyCrate");
-	CharTemplate.CharacterBaseStats[eStat_HP] = 5;
+	CharTemplate.CharacterBaseStats[eStat_HP] = 3;
 	// Traversal Rules
 	CharTemplate.bCanUse_eTraversal_Normal = true;
 	CharTemplate.bCanUse_eTraversal_ClimbOver = true;
