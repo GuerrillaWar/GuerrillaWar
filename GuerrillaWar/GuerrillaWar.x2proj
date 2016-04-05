@@ -76,6 +76,18 @@
     <Content Include="Content\GW_SupplyRaidExtract.upk">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\GW_WLD_Convoy_Supply_Line_16x64_01.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_WLD_Convoy_Supply_Line_16x64_02.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_WLD_Train_Supply_Line_16x64_01.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_WLD_Train_Supply_Line_16x64_02.umap">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Localization\XComGame.int">
       <SubType>Content</SubType>
     </Content>
