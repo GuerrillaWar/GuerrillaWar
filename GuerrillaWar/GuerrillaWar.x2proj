@@ -10,7 +10,7 @@
     <ProjectGuid>{37be39d5-bf2a-4cfc-8107-2a03c1b6ee96}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Config\GuerrillaWar.ini">
+    <Content Include="Config\XComGuerrillaWar.ini">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Config\XComEditor.ini">
@@ -122,10 +122,16 @@
     <Content Include="Src\GuerrillaWar\Classes\GW_Item_FultonHarness.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_MissionLogic_Reinforcements.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_MissionNarrative_SupplyRaidExtract.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_TacticalGameRuleset.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerrillaWar\Classes\X2MissionLogic.uc">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>

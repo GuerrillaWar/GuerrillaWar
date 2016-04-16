@@ -1,6 +1,69 @@
 // This is an Unreal Script
 
-class GW_TacticalGameRuleset extends X2TacticalGameRuleset;
+class GW_TacticalGameRuleset extends X2TacticalGameRuleset config(GuerrillaWar);
+
+struct MissionLogicBinding
+{
+	var string MissionType;
+	var string MissionLogicClass;
+};
+
+var const config array<MissionLogicBinding> arrMissionLogicBindings;
+
+/// <summary>
+/// Called by the tactical game start up process when a new battle is starting
+/// </summary>
+simulated function StartNewGame()
+{
+
+
+	//Build a local cache of useful state object references
+	BuildLocalStateObjectCache();
+
+
+	GotoState('CreateTacticalGame');
+}
+
+simulated function LoadRelevantMissionLogic()
+{
+	local XComGameStateHistory History;
+	local XComGameState NewGameState;
+	local XComGameState_BattleData BattleData;
+	local X2MissionLogic MissionLogic;
+	local MissionLogicBinding LogicBinding;
+	local class<X2MissionLogic> MissionLogicClass;
+	local string MissionType;
+
+	History = `XCOMHISTORY;
+	NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Setup Mission Logic");
+
+	BattleData = XComGameState_BattleData(CachedHistory.GetGameStateForObjectID(CachedBattleDataRef.ObjectID));
+	MissionType = BattleData.MapData.ActiveMission.sType;
+	`log("Loading for:");
+	`log(MissionType);
+	foreach arrMissionLogicBindings(LogicBinding)
+	{
+		`log(LogicBinding.MissionType);
+		`log(LogicBinding.MissionLogicClass);
+		if (LogicBinding.MissionType == MissionType)
+		{
+			MissionLogicClass = class<X2MissionLogic>(DynamicLoadObject(LogicBinding.MissionLogicClass, class'Class'));
+			MissionLogic = X2MissionLogic(NewGameState.CreateStateObject(MissionLogicClass));
+			NewGameState.AddStateObject(MissionLogic);
+			MissionLogic.RegisterEventHandlers();
+		}
+	}
+	`log("SubmittingGameState");
+	SubmitGameState(NewGameState);
+}
+
+function ApplyStartOfMatchConditions()
+{
+	LoadRelevantMissionLogic();
+	Super(X2TacticalGameRuleset).ApplyStartOfMatchConditions();
+	`log(`XEVENTMGR.AllEventListenersToString());
+}
+
 
 static function CleanupTacticalMission(optional bool bSimCombat = false)
 {
