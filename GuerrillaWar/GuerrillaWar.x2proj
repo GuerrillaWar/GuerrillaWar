@@ -43,10 +43,16 @@
     <Content Include="Content\GW_md_AdventLandingPad_02.umap">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\GW_Obj_Blacksite.umap">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\GW_Obj_DestroyObject.umap">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\GW_Obj_ExtractVIP.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_Obj_Forge.umap">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\GW_Obj_HackWorkstation.umap">
@@ -65,6 +71,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\GW_Obj_SabotageCC.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_Obj_SecureUFO.umap">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\GW_Obj_SupplyRaid.umap">
