@@ -37,6 +37,12 @@
     <Content Include="Content\GW_GameUnits.upk">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\GW_lg_UFO_01.umap">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GW_lg_UFO_02.umap">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\GW_md_AdventLandingPad_01.umap">
       <SubType>Content</SubType>
     </Content>

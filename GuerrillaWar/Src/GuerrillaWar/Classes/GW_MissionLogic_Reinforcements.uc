@@ -18,7 +18,7 @@ struct ReinforcementEncounter
 
 	structdefaultproperties
 	{
-		FlareCountdown = 1
+		FlareCountdown = 2
 		RepeatCountdown = 0
 		RandomTilesSpread = 40
 		YOffsetFromObjective = 0
