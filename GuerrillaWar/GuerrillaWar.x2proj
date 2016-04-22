@@ -160,6 +160,9 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Src\GuerrillaWar\Classes\GW_MissionNarrative_SupplyRaidExtract.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_StrategyElement_DefaultMissionSources.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_TacticalGameRuleset.uc">
       <SubType>Content</SubType>
     </Content>
