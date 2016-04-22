@@ -13,10 +13,8 @@ static function array<X2DataTemplate> CreateTemplates()
 static function X2DataTemplate CreateGWPOISupplyLineRaidTemplate()
 {
 	local X2PointOfInterestTemplate Template;
-	`log("SOMETHING!!!!!!!!!!!!!!!!!!!!");
 	`CREATE_X2POINTOFINTEREST_TEMPLATE(Template, 'GW_POI_SupplyLineRaid');
 	Template.CanAppearFn = CanGOpsAppear;
-	`Log("Template.Parameter is set to " $ Template.CompleteNarrative $ " after init");
 
 	return Template;
 }
