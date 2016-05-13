@@ -53,7 +53,7 @@ static function X2AbilityTemplate CreateDeployFultonHarness()
 	TargetCondition.ExcludeFriendlyToSource = false;
 	TargetCondition.ExcludeHostileToSource = false;     
 	TargetCondition.RequireWithinRange = true;
-	TargetCondition.WithinRange = 144;
+	TargetCondition.WithinRange = 288;
 	Template.AbilityTargetConditions.AddItem(TargetCondition);
 
 	InputTrigger = new class'X2AbilityTrigger_PlayerInput';
