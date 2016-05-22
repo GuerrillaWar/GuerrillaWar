@@ -27,6 +27,9 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <ProjectGuid>{37be39d5-bf2a-4cfc-8107-2a03c1b6ee96}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Config\XComGame.ini">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Config\XComGuerrillaWar.ini">
       <SubType>Content</SubType>
     </Content>
@@ -34,6 +37,9 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
       <SubType>Content</SubType>
     </Content>
     <Content Include="Config\XComEngine.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Config\XComMissionLogic.ini">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Config\XComMissions.ini">
@@ -163,10 +169,28 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Src\GuerrillaWar\Classes\GW_StrategyElement_DefaultMissionSources.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_TacticalCleanup.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_TacticalGameRuleset.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerrillaWar\Classes\X2MissionLogic.uc">
+    <Content Include="Src\GuerrillaWar\Classes\X2DownloadableContentInfo_GuerrillaWar.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\XComMissionLogic\Classes\X2DownloadableContentInfo_XComMissionLogic.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\XComMissionLogic\Classes\XComGameState_MissionLogic.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\XComMissionLogic\Classes\XComGameState_NonstackingReinforcements.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\XComMissionLogic\Classes\XComMissionLogic_Listener.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\XComMissionLogic\Classes\XComMissionLogic_TestLogic.uc">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
@@ -176,6 +200,8 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Folder Include="Content\Parcels" />
     <Folder Include="Localization" />
     <Folder Include="Src" />
+    <Folder Include="Src\XComMissionLogic" />
+    <Folder Include="Src\XComMissionLogic\Classes" />
     <Folder Include="Src\GuerrillaWar" />
     <Folder Include="Src\GuerrillaWar\Classes" />
   </ItemGroup>

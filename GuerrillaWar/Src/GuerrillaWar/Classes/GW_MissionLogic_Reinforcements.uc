@@ -1,4 +1,4 @@
-class GW_MissionLogic_Reinforcements extends X2MissionLogic config(GuerrillaWar);
+class GW_MissionLogic_Reinforcements extends XComGameState_MissionLogic config(GuerrillaWar);
 
 enum eReinforcementTrigger
 {
@@ -50,6 +50,19 @@ var int ProgressionTurn;
 
 delegate EventListenerReturn OnEventDelegate(Object EventData, Object EventSource, XComGameState GameState, Name EventID);
 
+function SetupMissionStartState(XComGameState StartState)
+{
+	FoundSchedule = FindReinforcementSchedule();
+
+	if (FoundSchedule)
+	{
+		if (ActiveSchedule.ProgressionTrigger == eReinforcementTrigger_OnMissionStart)
+		{
+			ProgressionActive = true;
+		}
+	}
+}
+
 function RegisterEventHandlers()
 {	
 	FoundSchedule = FindReinforcementSchedule();
@@ -61,11 +74,7 @@ function RegisterEventHandlers()
 			`log("Reinforcement Schedule Awaiting RedAlert");
 			OnAbilityActivated(CheckRedAlert);
 		}
-		else
-		{
-			`log("Reinforcement Schedule Activated");
-			ProgressionActive = true;
-		}
+
 		OnAlienTurnBegin(AdvanceReinforcementSchedule);
 	}
 	else
@@ -77,7 +86,6 @@ function RegisterEventHandlers()
 function bool FindReinforcementSchedule()
 {
 	local XComGameStateHistory History;
-	local XComGameState NewGameState;
 	local XComGameState_BattleData BattleData;
 	local ReinforcementSchedule Schedule;
 	local array<ReinforcementSchedule> Candidates;
@@ -114,9 +122,18 @@ function bool FindReinforcementSchedule()
 
 function EventListenerReturn CheckRedAlert(Object EventData, Object EventSource, XComGameState GameState, Name EventID)
 {
+	local XComGameState NewGameState;
+	local GW_MissionLogic_Reinforcements NewMissionState;
+
 	if (!ProgressionActive && EventAbilityIs("RedAlert", EventData, GameState))
 	{
 		ProgressionActive = true;
+
+		NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Activate Progression");
+		NewMissionState = GW_MissionLogic_Reinforcements(NewGameState.CreateStateObject(class'GW_MissionLogic_Reinforcements', ObjectID));
+		NewMissionState.ProgressionActive = ProgressionActive;
+		NewGameState.AddStateObject(NewMissionState);
+		`XCOMGAME.GameRuleset.SubmitGameState(NewGameState);
 		`log("Reinforcement Schedule Activated");
 	}
 	return ELR_NoInterrupt;
@@ -131,6 +148,8 @@ function EventListenerReturn AdvanceReinforcementSchedule(Object EventData, Obje
 	local int RepeatCountdown;
 	local float TILE_SIZE;
 	local Vector ObjectiveLocation, ReinforceLocation;
+	local XComGameState NewGameState;
+	local GW_MissionLogic_Reinforcements NewMissionState;
 
 	TILE_SIZE = 96;
 
@@ -168,7 +187,7 @@ function EventListenerReturn AdvanceReinforcementSchedule(Object EventData, Obje
 			`log("ReinforceLocation:");
 			`log(ReinforceLocation);
 
-			class'XComGameState_AIReinforcementSpawner'.static.InitiateReinforcements(
+			class'XComGameState_NonstackingReinforcements'.static.InitiateReinforcements(
 				Encounter.EncounterID,
 				Encounter.FlareCountdown, 
 				OverrideDefaultLocation, // bUseOverrideTargetLocation,
@@ -180,7 +199,13 @@ function EventListenerReturn AdvanceReinforcementSchedule(Object EventData, Obje
 	}
 
 	ProgressionTurn = ProgressionTurn + 1;
-	`log("Advancing Reinforcement Schedule");
+
+	NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Activate Progression");
+	NewMissionState = GW_MissionLogic_Reinforcements(NewGameState.CreateStateObject(class'GW_MissionLogic_Reinforcements', ObjectID));
+	NewMissionState.ProgressionTurn = ProgressionTurn;
+	NewGameState.AddStateObject(NewMissionState);
+	`XCOMGAME.GameRuleset.SubmitGameState(NewGameState);
+	`log("Reinforcement Schedule Activated");
 	return ELR_NoInterrupt;
 }
 
