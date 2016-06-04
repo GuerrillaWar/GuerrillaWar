@@ -17,6 +17,7 @@ static function X2AbilityTemplate CreateDeployFultonHarness()
 	local X2AbilityCost_ActionPoints        ActionPointCost;
 	local X2AbilityTarget_Single            SingleTarget;
 	local X2Condition_UnitProperty      TargetCondition, ShooterCondition;
+	local GW_Condition_IsFultonable		FultonableCondition;
 	local X2AbilityTrigger_PlayerInput      InputTrigger;
 	local X2AbilityCharges              Charges;
 	local X2AbilityCost_Charges         ChargeCost;
@@ -47,7 +48,6 @@ static function X2AbilityTemplate CreateDeployFultonHarness()
 	Template.AddShooterEffectExclusions();
 
 	TargetCondition = new class'X2Condition_UnitProperty';
-	TargetCondition.CanBeCarried = true;
 	TargetCondition.ExcludeAlive = false;               
 	TargetCondition.ExcludeDead = false;
 	TargetCondition.ExcludeFriendlyToSource = false;
@@ -55,6 +55,9 @@ static function X2AbilityTemplate CreateDeployFultonHarness()
 	TargetCondition.RequireWithinRange = true;
 	TargetCondition.WithinRange = 288;
 	Template.AbilityTargetConditions.AddItem(TargetCondition);
+
+	FultonableCondition = new class'GW_Condition_IsFultonable';            
+	Template.AbilityTargetConditions.AddItem(FultonableCondition);
 
 	InputTrigger = new class'X2AbilityTrigger_PlayerInput';
 	Template.AbilityTriggers.AddItem(InputTrigger);

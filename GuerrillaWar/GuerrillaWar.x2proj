@@ -151,6 +151,9 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Src\GuerrillaWar\Classes\GW_Character_SupplyCrate.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_Condition_IsFultonable.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_DefaultCharacters.uc">
       <SubType>Content</SubType>
     </Content>
@@ -170,9 +173,6 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_TacticalCleanup.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\GuerrillaWar\Classes\GW_TacticalGameRuleset.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\X2DownloadableContentInfo_GuerrillaWar.uc">
