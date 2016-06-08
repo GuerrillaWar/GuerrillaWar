@@ -16,3 +16,6 @@ CONFIG:
 
 REPORTING:
 Bugs and Balance Complaints will be collected at https://github.com/MalucoMarinero/XCOM2GuerillaWarfare/issues
+
+CREDITS
+ProvokingPerch and Vortex-Pixalation for their Edited Ragdoll Physics mod, which allows Guerrilla War to preserve the corpses of Gatekeepers and Sectopods.

@@ -19,7 +19,17 @@ event name CallMeetsConditionWithSource(XComGameState_BaseObject kTarget, XComGa
 	if (TargetState != none && SourceState != none)
 	{
 		if (TargetState.IsAbleToAct() && SourceState.IsEnemyUnit(TargetState))
-		{
+		{   // cannot fulton active enemies
+			RetCode = 'AA_NoTargets';
+		}
+
+		if (TargetState.IsBeingCarried()) 
+		{   // cannot fulton things being carried
+			RetCode = 'AA_NoTargets';
+		}
+		
+		if (TargetState.IsUnitAffectedByEffectName(class'X2Ability_CarryUnit'.default.CarryUnitEffectName))
+		{   // cannot fulton things that are carrying something
 			RetCode = 'AA_NoTargets';
 		}
 	}

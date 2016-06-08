@@ -23,6 +23,7 @@ static function X2AbilityTemplate PlaceEvacZone()
 
 	Template.Hostility = eHostility_Neutral;
 	Template.bCommanderAbility = true;
+	Template.ConcealmentRule = eConceal_Never;
 	Template.eAbilityIconBehaviorHUD = eAbilityIconBehavior_AlwaysShow;
 	Template.ShotHUDPriority = class'UIUtilities_Tactical'.const.PLACE_EVAC_PRIORITY;
 	Template.IconImage = "img:///UILibrary_PerkIcons.UIPerk_evac";

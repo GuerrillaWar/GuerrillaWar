@@ -51,6 +51,12 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Config\XComPCPs.ini">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\GameUnit_Gatekeeper_Edited.upk">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\GameUnit_Sectopod_Edited.upk">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\GW_Effects.upk">
       <SubType>Content</SubType>
     </Content>
