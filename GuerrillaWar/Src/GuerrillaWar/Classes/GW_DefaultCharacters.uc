@@ -238,6 +238,35 @@ static function X2CharacterTemplate CreateTemplate_Viper()
 	return CharTemplate;
 }
 
+static function X2CharacterTemplate CreateTemplate_Gatekeeper()
+{
+	local X2CharacterTemplate CharTemplate;
+	CharTemplate = Super(X2Character_DefaultCharacters).CreateTemplate_Gatekeeper();
+	CharTemplate.strPawnArchetypes.Remove(0, CharTemplate.strPawnArchetypes.Length);
+	CharTemplate.strPawnArchetypes.AddItem("GameUnit_Gatekeeper_Edited.ARC_GameUnit_GatekeeperEdited");
+	return CharTemplate;
+}
+
+static function X2CharacterTemplate CreateTemplate_Sectopod()
+{
+	local X2CharacterTemplate CharTemplate;
+	CharTemplate = Super(X2Character_DefaultCharacters).CreateTemplate_Sectopod();
+	CharTemplate.strPawnArchetypes.Remove(0, CharTemplate.strPawnArchetypes.Length);
+	CharTemplate.strPawnArchetypes.AddItem("GameUnit_Sectopod_Edited.ARC_GameUnit_SectopodEdited");
+	return CharTemplate;
+}
+
+static function X2CharacterTemplate CreateTemplate_PrototypeSectopod()
+{
+	local X2CharacterTemplate CharTemplate;
+	CharTemplate = Super(X2Character_DefaultCharacters).CreateTemplate_PrototypeSectopod();
+	CharTemplate.strPawnArchetypes.Remove(0, CharTemplate.strPawnArchetypes.Length);
+	CharTemplate.strPawnArchetypes.AddItem("GameUnit_Sectopod_Edited.ARC_GameUnit_SectopodEdited");
+	return CharTemplate;
+}
+
+
+
 
 //Codex(Cyberus) does not require it (brain collected)
 //Chrysallid cannot map to Body anim set
