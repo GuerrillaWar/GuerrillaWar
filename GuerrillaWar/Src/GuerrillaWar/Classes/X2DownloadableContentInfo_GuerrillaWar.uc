@@ -34,3 +34,14 @@ static event OnPreMission(XComGameState NewGameState, XComGameState_MissionSite 
 	EndMissionListener.RegisterToListen();
 
 }
+
+/// <summary>
+/// Called when the player starts a new campaign while this DLC / Mod is installed. When a new campaign is started the initial state of the world
+/// is contained in a strategy start state. Never add additional history frames inside of InstallNewCampaign, add new state objects to the start state
+/// or directly modify start state objects
+/// </summary>
+static event InstallNewCampaign(XComGameState StartState)
+{
+	class'GW_GameState_CityControlZone'.static.SetUpCityControlZones(StartState);
+}
+
