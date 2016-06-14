@@ -1,4 +1,4 @@
-class GW_UIStrategy_CityControlZone extends UIMission;
+class GW_UIStrategySite_CityControlZone extends GW_UIStrategySite;
 
 var public GW_GameState_CityControlZone CityControlZone;
 
@@ -126,7 +126,27 @@ simulated function BuildOptionsPanel()
 	//LibraryPanel.MC.QueueString("OKELYDOKELY");
 
 	LibraryPanel.MC.EndOp();
+
+
+	Button1.OnClickedDelegate = OnGeneClinicClicked;
+	Button2.OnClickedDelegate = OnMonumentClicked;
+
+	Button1.SetBad(true);
+	Button2.SetBad(true);
+
 }
+
+simulated public function OnGeneClinicClicked(UIButton button)
+{
+	FlyToMissionSite(CityControlZone.GenerateGeneClinicMission());
+}
+
+simulated public function OnMonumentClicked(UIButton button)
+{
+	FlyToMissionSite(CityControlZone.GenerateMonumentMission());
+}
+
+
 
 //-------------- EVENT HANDLING --------------------------------------------------------
 

@@ -1,4 +1,4 @@
-class GW_GameState_CityControlZone extends GW_GameState_StrategyAsset;
+class GW_GameState_CityControlZone extends GW_GameState_StrategySite;
 
 enum eCityType
 {
@@ -72,6 +72,8 @@ static function SetUpCityControlZones(XComGameState StartState, optional bool bT
 			//Build the state object and add it to the start state
 			CCZ = GW_GameState_CityControlZone(StartState.CreateStateObject(class'GW_GameState_CityControlZone'));
 			CCZ.OnCreation(PickedCities[Index]);
+			CCZ.Region = RegionState.GetReference();
+			CCZ.Continent = RegionState.GetContinent().GetReference();
 
 			// limit of 1 developed control zone per region
 			if (Index == 0)
@@ -142,6 +144,18 @@ function String GetCityDisplayName()
 {
 	return GetTemplate().DisplayName;
 }
+
+
+function GW_GameState_MissionSite GenerateGeneClinicMission()
+{
+	return SpawnMissionSite('MissionSource_SabotageCCZMonument', 'Reward_None');
+}
+
+function GW_GameState_MissionSite GenerateMonumentMission()
+{
+	return SpawnMissionSite('MissionSource_SabotageCCZMonument', 'Reward_None');
+}
+
 
 
 // GEOSCAPE_ENTITY METHODS

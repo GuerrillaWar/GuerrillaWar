@@ -169,7 +169,10 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Src\GuerrillaWar\Classes\GW_GameState_EvacZoneSpawner.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerrillaWar\Classes\GW_GameState_StrategyAsset.uc">
+    <Content Include="Src\GuerrillaWar\Classes\GW_GameState_MissionSite.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_GameState_StrategySite.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_Item_FultonHarness.uc">
@@ -190,7 +193,10 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Src\GuerrillaWar\Classes\GW_TacticalCleanup.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategy_CityControlZone.uc">
+    <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategySite.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategySite_CityControlZone.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\X2DownloadableContentInfo_GuerrillaWar.uc">
