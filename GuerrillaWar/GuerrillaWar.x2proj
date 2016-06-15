@@ -78,6 +78,9 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Content\GW_md_AdventLandingPad_02.umap">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\GW_md_GeneClinic_01.umap">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\GW_Obj_Blacksite.umap">
       <SubType>Content</SubType>
     </Content>
@@ -172,6 +175,9 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Src\GuerrillaWar\Classes\GW_GameState_MissionSite.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_GameState_ResistanceCamp.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_GameState_StrategySite.uc">
       <SubType>Content</SubType>
     </Content>
@@ -197,6 +203,9 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategySite_CityControlZone.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategySite_ResistanceCamp.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\X2DownloadableContentInfo_GuerrillaWar.uc">

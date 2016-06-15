@@ -1,11 +1,45 @@
 
 class GW_GameState_StrategySite extends XComGameState_GeoscapeEntity;
 
-var array<GeneratedMissionData>		arrMissionsOnSite;
+struct StrategySiteStructure
+{
+	var name Type;
+	var float Completion; // 0.0 - 1.0
+};
+
+
+var() array<StrategySiteStructure> Structures;
 
 //---------------------------------------------------------------------------------------
 //----------- GW_GameState_StrategySite Interface --------------------------------------
 //---------------------------------------------------------------------------------------
+
+function int GetStructureCount(name StructureType)
+{
+	local StrategySiteStructure Structure;
+	local int S_Count;
+	foreach Structures(Structure)
+	{
+		if (Structure.Type == StructureType)
+		{
+			S_Count++;
+		}
+	}
+	return S_Count;
+}
+
+function DestroyStructureOfType(name StructureType)
+{
+	local StrategySiteStructure Structure;
+	local int ix;
+
+	ix = Structures.Find('Type', StructureType);
+	if (ix != -1)
+	{
+		Structures.Remove(ix, 1);
+	}
+}
+
 
 function GW_GameState_MissionSite SpawnMissionSite(name MissionSourceName, name MissionRewardName, optional name ExtraMissionRewardName)
 {
@@ -50,6 +84,7 @@ function GW_GameState_MissionSite SpawnMissionSite(name MissionSourceName, name 
 	NewGameState.AddStateObject(MissionState);
 	MissionState.BuildMission(MissionSource, Get2DLocation(), RegionState.GetReference(), MissionRewards);
 	MissionState.SiteGenerated = true;
+	MissionState.RelatedStrategySiteRef = GetReference();
 
 	if(NewGameState.GetNumGameStateObjects() > 0)
 	{

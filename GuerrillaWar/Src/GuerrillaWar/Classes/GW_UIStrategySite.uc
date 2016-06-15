@@ -1,5 +1,3 @@
-// This is an Unreal Script
-
 class GW_UIStrategySite extends UIMission;
 
 

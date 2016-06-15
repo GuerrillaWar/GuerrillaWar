@@ -95,8 +95,10 @@ simulated function BuildMissionPanel()
 	LibraryPanel.MC.QueueString("img:///UILibrary_StrategyImages.X2StrategyMap.Alert_Advent_Facility");
 	LibraryPanel.MC.QueueString("Relaxed Forces");
 	LibraryPanel.MC.QueueString("GARRISON");
-	LibraryPanel.MC.QueueString("ADVENT: 100-150, AYY: 20-40, MECH: 40-50");
-	LibraryPanel.MC.QueueString("3 Gene Clinics\n1 Recruitment Centre\n5 Supply Centres");
+	LibraryPanel.MC.QueueString("ADVENT: 100-150, AYYLMAO: 20-40, MECH: 40-50");
+	LibraryPanel.MC.QueueString(CityControlZone.GetGeneClinicCount() $ " Gene Clinic(s)\n" $
+								CityControlZone.GetRecruitmentCentreCount() $ " Recruitment Centre(s)\n" $
+								CityControlZone.GetSupplyCentreCount() $ " Supply Centre(s)");
 
 	LibraryPanel.MC.QueueString("Civilian Sentiment");
 	LibraryPanel.MC.QueueString("Neutral");

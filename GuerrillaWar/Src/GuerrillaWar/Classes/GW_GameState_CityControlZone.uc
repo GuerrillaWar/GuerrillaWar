@@ -6,6 +6,10 @@ enum eCityType
 	eCityType_Slums
 };
 
+var name GeneClinicName;
+var name RecruitmentCentreName;
+var name SupplyCentreName;
+
 var() protected name                   m_TemplateName;
 var() protected eCityType			   CityType;
 
@@ -30,6 +34,7 @@ static function SetUpCityControlZones(XComGameState StartState, optional bool bT
 	local array<X2CityTemplate> PickedCities;
 	local int NumDesired, Index, RandomIndex;
 	local Vector2D v2Coords;
+	local StrategySiteStructure EmptyStructure, Structure;
 
 	arrCityTemplates = GetMyTemplateManager().GetAllTemplatesOfClass(class'X2CityTemplate');
 	MaxCityIterations = 100;
@@ -74,6 +79,29 @@ static function SetUpCityControlZones(XComGameState StartState, optional bool bT
 			CCZ.OnCreation(PickedCities[Index]);
 			CCZ.Region = RegionState.GetReference();
 			CCZ.Continent = RegionState.GetContinent().GetReference();
+
+			Structure = EmptyStructure;
+			Structure.Type = default.GeneClinicName;
+			Structure.Completion = 1;
+			CCZ.Structures.AddItem(Structure);
+
+			Structure = EmptyStructure;
+			Structure.Type = default.RecruitmentCentreName;
+			Structure.Completion = 1;
+			CCZ.Structures.AddItem(Structure);
+
+			Structure = EmptyStructure;
+			Structure.Type = default.SupplyCentreName;
+			Structure.Completion = 1;
+			CCZ.Structures.AddItem(Structure);
+			Structure = EmptyStructure;
+			Structure.Type = default.SupplyCentreName;
+			Structure.Completion = 1;
+			CCZ.Structures.AddItem(Structure);
+			Structure = EmptyStructure;
+			Structure.Type = default.SupplyCentreName;
+			Structure.Completion = 1;
+			CCZ.Structures.AddItem(Structure);
 
 			// limit of 1 developed control zone per region
 			if (Index == 0)
@@ -125,8 +153,6 @@ static function bool InRegion(XComGameState_WorldRegion WorldRegion, Vector2D v2
 	return bFoundInRegion;
 }
 
-
-
 function OnCreation(X2CityTemplate Template)
 {
 	Location = Template.Location;
@@ -145,10 +171,15 @@ function String GetCityDisplayName()
 	return GetTemplate().DisplayName;
 }
 
+function int GetGeneClinicCount() { return GetStructureCount(default.GeneClinicName); }
+function int GetRecruitmentCentreCount() { return GetStructureCount(default.RecruitmentCentreName); }
+function int GetSupplyCentreCount() { return GetStructureCount(default.SupplyCentreName); }
+
+function DestroyGeneClinic() { DestroyStructureOfType(default.GeneClinicName); }
 
 function GW_GameState_MissionSite GenerateGeneClinicMission()
 {
-	return SpawnMissionSite('MissionSource_SabotageCCZMonument', 'Reward_None');
+	return SpawnMissionSite('MissionSource_SabotageCCZGeneClinic', 'Reward_None');
 }
 
 function GW_GameState_MissionSite GenerateMonumentMission()
@@ -164,4 +195,12 @@ protected function bool DisplaySelectionPrompt()
 	class'GW_StrategyUIManager'.static.CityControlZoneUICard(self);
 
 	return true;
+}
+
+defaultproperties
+{
+	GeneClinicName="GeneClinic"
+	RecruitmentCentreName="RecruitmentCentre"
+	SupplyCentreName="SupplyCentre"
+
 }

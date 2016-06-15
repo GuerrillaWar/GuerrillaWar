@@ -1,6 +1,7 @@
 class GW_GameState_MissionSite extends XComGameState_MissionSite;
 
 var() bool SiteGenerated;
+var() StateObjectReference RelatedStrategySiteRef;
 
 function bool ShouldBeVisible()
 {
