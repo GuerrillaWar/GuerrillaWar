@@ -5,6 +5,12 @@ class X2DownloadableContentInfo_GuerrillaWar extends X2DownloadableContentInfo C
 static event OnPostTemplatesCreated()
 {
 	`log("GuerrillaWar :: Present And Correct");
+	UpdateTemplates();
+}
+
+static function UpdateTemplates()
+{
+	class'GW_Archetypes_UpdateCarryAnimSets'.static.UpdateCharacterArchetypes();
 }
 
 static event OnPreMission(XComGameState NewGameState, XComGameState_MissionSite MissionState)
@@ -32,7 +38,7 @@ static event OnPreMission(XComGameState NewGameState, XComGameState_MissionSite 
 	}
 
 	EndMissionListener.RegisterToListen();
-
+	UpdateTemplates();
 }
 
 /// <summary>
@@ -43,5 +49,6 @@ static event OnPreMission(XComGameState NewGameState, XComGameState_MissionSite 
 static event InstallNewCampaign(XComGameState StartState)
 {
 	class'GW_GameState_CityControlZone'.static.SetUpCityControlZones(StartState);
+	UpdateTemplates();
 }
 
