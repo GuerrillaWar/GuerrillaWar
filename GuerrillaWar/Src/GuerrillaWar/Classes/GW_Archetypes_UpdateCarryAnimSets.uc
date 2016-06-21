@@ -39,6 +39,7 @@ static function UpdateCharacterArchetypes()
 static function UpdateCharacterForCarrying(X2CharacterTemplate Template)
 {
 	local string ArchetypeIdentifier;
+	local XComAlienPawn APawn;
 	local XComContentManager ContentMgr;
 	ContentMgr = `CONTENT;
 
@@ -48,17 +49,8 @@ static function UpdateCharacterForCarrying(X2CharacterTemplate Template)
 	foreach Template.strPawnArchetypes(ArchetypeIdentifier)
 	{
 		`log("GuerrillaWar :: Adding Carry Animations to" @ ArchetypeIdentifier);
-		ContentMgr.RequestGameArchetype(ArchetypeIdentifier, none, OnLoaded, false);
+		APawn = XComAlienPawn(ContentMgr.RequestGameArchetype(ArchetypeIdentifier));
+		APawn.CarryingUnitAnimSets.AddItem(AnimSet'Soldier_ANIM.Anims.AS_Carry');
+		APawn.BeingCarriedAnimSets.AddItem(AnimSet'Soldier_ANIM.Anims.AS_Body');
 	}
-
-
-}
-
-static function OnLoaded(Object LoadedArchetype)
-{
-	local XComAlienPawn APawn;
-
-	APawn = XComAlienPawn(LoadedArchetype);
-	APawn.CarryingUnitAnimSets.AddItem(AnimSet'Soldier_ANIM.Anims.AS_Carry');
-	APawn.BeingCarriedAnimSets.AddItem(AnimSet'Soldier_ANIM.Anims.AS_Body');
 }
