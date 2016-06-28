@@ -178,6 +178,9 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Src\GuerrillaWar\Classes\GW_GameState_ResistanceCamp.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_GameState_StrategyAsset.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_GameState_StrategySite.uc">
       <SubType>Content</SubType>
     </Content>
@@ -188,6 +191,9 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_MissionNarrative_SupplyRaidExtract.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_StrategyAssetTemplate.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_StrategyElement_DefaultMissionSources.uc">
