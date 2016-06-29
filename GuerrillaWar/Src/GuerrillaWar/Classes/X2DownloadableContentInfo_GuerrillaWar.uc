@@ -42,6 +42,6 @@ static event OnPreMission(XComGameState NewGameState, XComGameState_MissionSite 
 /// </summary>
 static event InstallNewCampaign(XComGameState StartState)
 {
-	class'GW_GameState_CityControlZone'.static.SetUpCityControlZones(StartState);
+	//class'GW_GameState_CityControlZone'.static.SetUpCityControlZones(StartState);
 }
 

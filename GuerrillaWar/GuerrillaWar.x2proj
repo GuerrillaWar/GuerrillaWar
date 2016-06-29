@@ -181,9 +181,6 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Src\GuerrillaWar\Classes\GW_GameState_StrategyAsset.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerrillaWar\Classes\GW_GameState_StrategySite.uc">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_Item_FultonHarness.uc">
       <SubType>Content</SubType>
     </Content>
@@ -199,19 +196,22 @@ Bugs and Balance Complaints will be collected at https://github.com/MalucoMarine
     <Content Include="Src\GuerrillaWar\Classes\GW_StrategyElement_DefaultMissionSources.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\GuerrillaWar\Classes\GW_StrategyElement_DefaultStrategyAssets.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_StrategyUIManager.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\GW_TacticalCleanup.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategySite.uc">
+    <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategyAsset.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategySite_CityControlZone.uc">
+    <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategyAsset_CityControlZone.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategySite_ResistanceCamp.uc">
+    <Content Include="Src\GuerrillaWar\Classes\GW_UIStrategyAsset_ResistanceCamp.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\GuerrillaWar\Classes\X2DownloadableContentInfo_GuerrillaWar.uc">

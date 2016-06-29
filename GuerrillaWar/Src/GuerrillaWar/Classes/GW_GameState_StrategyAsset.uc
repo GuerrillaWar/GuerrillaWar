@@ -1,5 +1,5 @@
 
-class GW_GameState_StrategySite extends XComGameState_GeoscapeEntity;
+class GW_GameState_StrategyAsset extends XComGameState_GeoscapeEntity;
 
 struct StrategyAssetStructure
 {
@@ -21,7 +21,7 @@ struct StrategyAssetWaypoint
 	var Vector Location; 
 };
 
-var() array<StrategySiteStructure> Structures;
+var() array<StrategyAssetStructure> Structures;
 var() array<StrategyAssetSquad> Squads;
 var() array<StateObjectReference> Inventory;
 var() array<StrategyAssetWaypoint> Waypoints;
@@ -30,6 +30,28 @@ var() Vector Velocity;
 
 // investigate plot storage heeyah
 
+var() protected name											m_TemplateName;
+var() protected{mutable} transient GW_StrategyAssetTemplate		m_AssetTemplate;
+
+static function GW_GameState_StrategyAsset CreateAssetFromTemplate(XComGameState NewGameState, name TemplateName)
+{
+	local GW_StrategyAssetTemplate Template;
+	local GW_GameState_StrategyAsset Asset;
+
+	Template = GW_StrategyAssetTemplate(
+		class'X2StrategyElementTemplateManager'.static
+			.GetStrategyElementTemplateManager()
+			.FindStrategyElementTemplate(TemplateName)
+	);
+
+	Asset = GW_GameState_StrategyAsset(NewGameState.CreateStateObject(Template.GameStateClass));
+	Asset.m_TemplateName = TemplateName;
+	Asset.m_AssetTemplate = Template;
+
+	return Asset;
+}
+
+
 
 //---------------------------------------------------------------------------------------
 //----------- GW_GameState_StrategyAsset Interface --------------------------------------
@@ -37,7 +59,7 @@ var() Vector Velocity;
 
 function int GetStructureCount(name StructureType)
 {
-	local StrategySiteStructure Structure;
+	local StrategyAssetStructure Structure;
 	local int S_Count;
 	foreach Structures(Structure)
 	{
@@ -51,7 +73,7 @@ function int GetStructureCount(name StructureType)
 
 function DestroyStructureOfType(name StructureType)
 {
-	local StrategySiteStructure Structure;
+	//local StrategyAssetStructure Structure;
 	local int ix;
 
 	ix = Structures.Find('Type', StructureType);
@@ -66,7 +88,7 @@ function GW_GameState_MissionSite SpawnMissionSite(name MissionSourceName, name 
 {
 	local XComGameStateHistory History;
 	local XComGameState NewGameState;
-	local XComGameState_HeadquartersXCom XComHQ;
+	//local XComGameState_HeadquartersXCom XComHQ;
 	local GW_GameState_MissionSite MissionState;
 	local X2MissionSourceTemplate MissionSource;
 	local XComGameState_WorldRegion RegionState;
@@ -76,7 +98,7 @@ function GW_GameState_MissionSite SpawnMissionSite(name MissionSourceName, name 
 	local X2StrategyElementTemplateManager StratMgr;
 	
 	History = `XCOMHISTORY;
-	XComHQ = XComGameState_HeadquartersXCom(History.GetSingleGameStateObjectForClass(class'XComGameState_HeadquartersXCom'));
+	//XComHQ = XComGameState_HeadquartersXCom(History.GetSingleGameStateObjectForClass(class'XComGameState_HeadquartersXCom'));
 	RegionState = GetWorldRegion();
 	StratMgr = class'X2StrategyElementTemplateManager'.static.GetStrategyElementTemplateManager();
 	MissionSource = X2MissionSourceTemplate(StratMgr.FindStrategyElementTemplate(MissionSourceName));
@@ -197,7 +219,26 @@ function UpdateGameBoard()
 {
 }
 
+protected function bool DisplaySelectionPrompt()
+{
+	local GW_UIStrategyAsset kScreen;
+	local class<GW_UIStrategyAsset> kScreenClass;
 
+	kScreenClass = m_AssetTemplate.StrategyUIClass;
+
+	if(!`HQPRES.ScreenStack.GetCurrentScreen().IsA('GW_UIStrategyAsset'))
+	{
+		kScreen = `HQPRES.Spawn(kScreenClass, `HQPRES);
+		kScreen.bInstantInterp = false;
+		kScreen.StrategyAsset = self;
+		`HQPRES.ScreenStack.Push(kScreen);
+	}
+
+	if( `GAME.GetGeoscape().IsScanning() )
+		`HQPRES.StrategyMap2D.ToggleScan();
+
+	return true;
+}
 
 function RemoveEntity(XComGameState NewGameState)
 {

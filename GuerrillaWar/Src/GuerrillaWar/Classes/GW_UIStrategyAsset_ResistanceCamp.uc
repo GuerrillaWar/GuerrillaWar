@@ -1,6 +1,5 @@
-class GW_UIStrategySite_ResistanceCamp extends GW_UIStrategySite;
+class GW_UIStrategyAsset_ResistanceCamp extends GW_UIStrategyAsset;
 
-var public GW_GameState_ResistanceCamp ResistanceCamp;
 
 //----------------------------------------------------------------------------
 // MEMBERS
@@ -60,11 +59,11 @@ simulated function BuildScreen()
 	XComHQPresentationLayer(Movie.Pres).CAMSaveCurrentLocation();
 	if(bInstantInterp)
 	{
-		XComHQPresentationLayer(Movie.Pres).CAMLookAtEarth(ResistanceCamp.Get2DLocation(), CAMERA_ZOOM, 0);
+		XComHQPresentationLayer(Movie.Pres).CAMLookAtEarth(StrategyAsset.Get2DLocation(), CAMERA_ZOOM, 0);
 	}
 	else
 	{
-		XComHQPresentationLayer(Movie.Pres).CAMLookAtEarth(ResistanceCamp.Get2DLocation(), CAMERA_ZOOM);
+		XComHQPresentationLayer(Movie.Pres).CAMLookAtEarth(StrategyAsset.Get2DLocation(), CAMERA_ZOOM);
 	}
 	// Add Interception warning and Shadow Chamber info 
 	super.BuildScreen();

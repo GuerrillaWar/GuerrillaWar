@@ -1,6 +1,4 @@
-class GW_UIStrategySite_CityControlZone extends GW_UIStrategySite;
-
-var public GW_GameState_CityControlZone CityControlZone;
+class GW_UIStrategyAsset_CityControlZone extends GW_UIStrategyAsset;
 
 //----------------------------------------------------------------------------
 // MEMBERS
@@ -76,11 +74,11 @@ simulated function BuildScreen()
 	XComHQPresentationLayer(Movie.Pres).CAMSaveCurrentLocation();
 	if(bInstantInterp)
 	{
-		XComHQPresentationLayer(Movie.Pres).CAMLookAtEarth(CityControlZone.Get2DLocation(), CAMERA_ZOOM, 0);
+		XComHQPresentationLayer(Movie.Pres).CAMLookAtEarth(StrategyAsset.Get2DLocation(), CAMERA_ZOOM, 0);
 	}
 	else
 	{
-		XComHQPresentationLayer(Movie.Pres).CAMLookAtEarth(CityControlZone.Get2DLocation(), CAMERA_ZOOM);
+		XComHQPresentationLayer(Movie.Pres).CAMLookAtEarth(StrategyAsset.Get2DLocation(), CAMERA_ZOOM);
 	}
 	// Add Interception warning and Shadow Chamber info 
 	super.BuildScreen();
@@ -91,14 +89,12 @@ simulated function BuildMissionPanel()
 	// Send over to flash ---------------------------------------------------
 	LibraryPanel.MC.BeginFunctionOp("UpdateGoldenPathInfoBlade");
 	LibraryPanel.MC.QueueString("ADVENT Control Zone");
-	LibraryPanel.MC.QueueString(CityControlZone.GetCityDisplayName());
+	LibraryPanel.MC.QueueString("Display Name");
 	LibraryPanel.MC.QueueString("img:///UILibrary_StrategyImages.X2StrategyMap.Alert_Advent_Facility");
 	LibraryPanel.MC.QueueString("Relaxed Forces");
 	LibraryPanel.MC.QueueString("GARRISON");
 	LibraryPanel.MC.QueueString("ADVENT: 100-150, AYYLMAO: 20-40, MECH: 40-50");
-	LibraryPanel.MC.QueueString(CityControlZone.GetGeneClinicCount() $ " Gene Clinic(s)\n" $
-								CityControlZone.GetRecruitmentCentreCount() $ " Recruitment Centre(s)\n" $
-								CityControlZone.GetSupplyCentreCount() $ " Supply Centre(s)");
+	LibraryPanel.MC.QueueString("");
 
 	LibraryPanel.MC.QueueString("Civilian Sentiment");
 	LibraryPanel.MC.QueueString("Neutral");
@@ -140,12 +136,12 @@ simulated function BuildOptionsPanel()
 
 simulated public function OnGeneClinicClicked(UIButton button)
 {
-	FlyToMissionSite(CityControlZone.GenerateGeneClinicMission());
+	FlyToMissionSite(StrategyAsset.SpawnMissionSite('MissionSource_SabotageCCZGeneClinic', 'Reward_None'));
 }
 
 simulated public function OnMonumentClicked(UIButton button)
 {
-	FlyToMissionSite(CityControlZone.GenerateMonumentMission());
+	FlyToMissionSite(StrategyAsset.SpawnMissionSite('MissionSource_SabotageCCZMonument', 'Reward_None'));
 }
 
 

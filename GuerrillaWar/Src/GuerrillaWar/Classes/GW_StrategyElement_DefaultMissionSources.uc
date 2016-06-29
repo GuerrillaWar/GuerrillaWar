@@ -97,11 +97,11 @@ static function X2DataTemplate CreateSabotageCCZMonumentTemplate()
 
 function CCZMonumentOnSuccess(XComGameState NewGameState, XComGameState_MissionSite MissionState)
 {
-	local XComGameState_WorldRegion RegionState;
-
-	RegionState = XComGameState_WorldRegion(`XCOMHISTORY.GetGameStateForObjectID(MissionState.Region.ObjectID));
-	class'GW_GameState_ResistanceCamp'.static.ActivateCampInRegion(NewGameState, RegionState);
-	MissionState.RemoveEntity(NewGameState);
+	//local XComGameState_WorldRegion RegionState;
+//
+	//RegionState = XComGameState_WorldRegion(`XCOMHISTORY.GetGameStateForObjectID(MissionState.Region.ObjectID));
+	//class'GW_GameState_ResistanceCamp'.static.ActivateCampInRegion(NewGameState, RegionState);
+	//MissionState.RemoveEntity(NewGameState);
 }
 
 function CCZMonumentOnFailure(XComGameState NewGameState, XComGameState_MissionSite MissionState)
@@ -122,14 +122,14 @@ static function X2DataTemplate CreateSabotageCCZGeneClinicTemplate()
 
 function CCZGeneClinicOnSuccess(XComGameState NewGameState, XComGameState_MissionSite MissionState)
 {
-	local GW_GameState_CityControlZone CCZ;
-	local GW_GameState_MissionSite GWMissionState;
-
-	GWMissionState = GW_GameState_MissionSite(MissionState);
-	CCZ = GW_GameState_CityControlZone(NewGameState.CreateStateObject(class'GW_GameState_CityControlZone', GWMissionState.RelatedStrategySiteRef.ObjectID));
-	CCZ.DestroyGeneClinic();
-	NewGameState.AddStateObject(CCZ);
-	MissionState.RemoveEntity(NewGameState);
+	//local GW_GameState_CityControlZone CCZ;
+	//local GW_GameState_MissionSite GWMissionState;
+//
+	//GWMissionState = GW_GameState_MissionSite(MissionState);
+	//CCZ = GW_GameState_CityControlZone(NewGameState.CreateStateObject(class'GW_GameState_CityControlZone', GWMissionState.RelatedStrategySiteRef.ObjectID));
+	//CCZ.DestroyGeneClinic();
+	//NewGameState.AddStateObject(CCZ);
+	//MissionState.RemoveEntity(NewGameState);
 }
 
 function CCZGeneClinicOnFailure(XComGameState NewGameState, XComGameState_MissionSite MissionState)

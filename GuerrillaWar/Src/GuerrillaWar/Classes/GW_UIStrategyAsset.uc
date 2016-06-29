@@ -1,6 +1,6 @@
-class GW_UIStrategySite extends UIMission;
+class GW_UIStrategyAsset extends UIMission;
 
-
+var public GW_GameState_StrategyAsset StrategyAsset;
 
 simulated public function FlyToMissionSite(GW_GameState_MissionSite MissionSite)
 {

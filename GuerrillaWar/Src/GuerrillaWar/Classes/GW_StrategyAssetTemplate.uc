@@ -41,12 +41,18 @@ struct StrategyAssetStructureDefinition
 	var array<ArtifactCost> UpkeepCost;
 	var int UpkeepHours;
 
+	// STORAGE PARAMS
+	var int UnitCapacity;
+	var int InventoryCapacity;
+
 	// MISSION PARAM
 	var array<name> ParcelObjectiveTags;
 	var array<name> PCPObjectiveTags;
 
 	structdefaultproperties
 	{
+		UnitCapacity = 0;
+		InventoryCapacity = 0;
 		UpkeepHours = 168;
 	}
 };
@@ -56,9 +62,11 @@ var eTeam DefaultTeam;
 var int BaseInventoryCapacity;
 var int BaseUnitCapacity;
 
+var bool HasCoreStructure;
 var StrategyAssetStructureDefinition CoreStructure; // must be immediately built if this is assetCategory Buildable;
 var array<StrategyAssetStructureDefinition> AllowedStructures;
 var array<StrategyAssetSpeed> Speeds;
 var class<GW_GameState_StrategyAsset> GameStateClass;
+var class<GW_UIStrategyAsset> StrategyUIClass;
 
-var array<name> PlotObjectiveTags;
+var array<name> PlotTypes;
