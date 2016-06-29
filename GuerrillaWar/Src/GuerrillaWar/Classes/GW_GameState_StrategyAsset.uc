@@ -31,7 +31,7 @@ var() Vector Velocity;
 // investigate plot storage heeyah
 
 var() protected name											m_TemplateName;
-var() protected{mutable} transient GW_StrategyAssetTemplate		m_AssetTemplate;
+var() protected GW_StrategyAssetTemplate		m_AssetTemplate;
 
 static function GW_GameState_StrategyAsset CreateAssetFromTemplate(XComGameState NewGameState, name TemplateName)
 {
@@ -219,15 +219,36 @@ function UpdateGameBoard()
 {
 }
 
+simulated function name GetMyTemplateName()
+{
+	return m_TemplateName;
+}
+
+//---------------------------------------------------------------------------------------
+static function X2StrategyElementTemplateManager GetMyTemplateManager()
+{
+	return class'X2StrategyElementTemplateManager'.static.GetStrategyElementTemplateManager();
+}
+
+simulated function GW_StrategyAssetTemplate GetMyTemplate()
+{
+	if (m_AssetTemplate == none)
+	{
+		m_AssetTemplate = GW_StrategyAssetTemplate(GetMyTemplateManager().FindStrategyElementTemplate(m_TemplateName));
+	}
+	return m_AssetTemplate;
+}
+
 protected function bool DisplaySelectionPrompt()
 {
 	local GW_UIStrategyAsset kScreen;
 	local class<GW_UIStrategyAsset> kScreenClass;
 
-	kScreenClass = m_AssetTemplate.StrategyUIClass;
+	kScreenClass = GetMyTemplate().StrategyUIClass;
 
 	if(!`HQPRES.ScreenStack.GetCurrentScreen().IsA('GW_UIStrategyAsset'))
 	{
+		`log("Loading" @ kScreenClass);
 		kScreen = `HQPRES.Spawn(kScreenClass, `HQPRES);
 		kScreen.bInstantInterp = false;
 		kScreen.StrategyAsset = self;

@@ -10,7 +10,8 @@ class GW_GameState_CityControlZone extends GW_GameState_StrategyAsset;
 //var name RecruitmentCentreName;
 //var name SupplyCentreName;
 //
-//var() protected name                   m_TemplateName;
+var() protected name                   m_CityTemplateName;
+var() protected{mutable} transient X2CityTemplate		m_CityTemplate;
 //var() protected eCityType			   CityType;
 //
 //const NUM_TILES = 3;

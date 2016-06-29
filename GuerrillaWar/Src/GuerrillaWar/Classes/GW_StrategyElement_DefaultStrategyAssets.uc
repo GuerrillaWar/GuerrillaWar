@@ -68,7 +68,7 @@ static function X2DataTemplate CreateCityControlZone()
 	Template.BaseInventoryCapacity = 2000;
 	Template.BaseUnitCapacity = 1000;
 	Template.HasCoreStructure = false;
-	Template.GameStateClass = class'GW_GameState_StrategyAsset';
+	Template.GameStateClass = class'GW_GameState_CityStrategyAsset';
 	Template.StrategyUIClass = class'GW_UIStrategyAsset_CityControlZone';
 	Template.PlotTypes.AddItem('CityCenter');
 	Template.PlotTypes.AddItem('SmallTown');
@@ -90,7 +90,7 @@ static function X2DataTemplate CreateSlumCity()
 	Template.BaseInventoryCapacity = 1000;
 	Template.BaseUnitCapacity = 400;
 	Template.HasCoreStructure = false;
-	Template.GameStateClass = class'GW_GameState_StrategyAsset';
+	Template.GameStateClass = class'GW_GameState_CityStrategyAsset';
 	Template.StrategyUIClass = class'GW_UIStrategyAsset_CityControlZone';
 	Template.PlotTypes.AddItem('Slums');
 
